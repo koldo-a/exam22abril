@@ -2,6 +2,8 @@ package com.ipartek.formacion.exam22abril.presentacion.controladores;
 
 import java.io.IOException;
 
+import com.ipartek.formacion.exam22abril.entidades.MensajeUsuario;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,10 +26,21 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		if("admin@email.net".equals(email) && "contra".equals(password)) {
+		if("administrador".equals(email) && "123456".equals(password)) {
 			request.getSession().setAttribute("usuario", email);
-			
-			response.sendRedirect(request.getContextPath() + "/admin/productos");
+//			request.getSession().setAttribute("mensajeExito", "La operación de login se realizó correctamente.");
+//			request.getSession().setAttribute("tiempoEspera", 2000);
+//
+//			System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
+//
+//			response.sendRedirect(request.getContextPath() + "/admin/libros");
+//
+//			System.out.println("Redirección realizada correctamente");
+            // Crear mensaje de éxito y establecerlo en la sesión
+            MensajeUsuario mensaje = new MensajeUsuario("La operación de login se realizó correctamente.", 2000);
+            request.getSession().setAttribute("mensaje", mensaje);
+
+            response.sendRedirect(request.getContextPath() + "/admin/libros");
 			
 			return;
 		}

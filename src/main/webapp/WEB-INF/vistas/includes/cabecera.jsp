@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script defer src="js/bootstrap.bundle.min.js"></script>
 
+<link rel="stylesheet" href="css/tarjeta.css">
+<link rel="stylesheet" href="css/mensajes.css">
+
 <script defer src="js/jquery-3.7.1.min.js"></script>
 
 <link rel="stylesheet" href="css/dataTables.bootstrap5.css">
@@ -51,9 +54,11 @@
 							<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="logout">Logout <i class="bi bi-box-arrow-right"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="logout">Logout
+									<i class="bi bi-box-arrow-right"></i>
+							</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="admin/productos">Administración</a></li>
+								href="admin/libros">Administración</a></li>
 							<li class="navbar-text text-success">${usuario}</li>
 						</c:otherwise>
 					</c:choose>
@@ -62,10 +67,12 @@
 		</div>
 	</nav>
 	<c:if test="${error != null}">
-		<div class="alert alert-danger alert-dismissible fade show mb-3"
-			role="alert">
-			${error}
-			<button type="button" class="btn-close" data-bs-dismiss="alert"
-				aria-label="Close"></button>
+		<div class="container p-5">
+			<div class="alert alert-danger alert-dismissible fade show mb-3"
+				role="alert">
+				${error}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
 		</div>
 	</c:if>

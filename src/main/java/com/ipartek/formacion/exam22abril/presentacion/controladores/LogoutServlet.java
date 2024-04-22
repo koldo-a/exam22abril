@@ -17,6 +17,13 @@ public class LogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.getSession().invalidate();
 		
+		request.getSession().setAttribute("mensajeExito", "La operación de logout se realizó correctamente.");
+		request.getSession().setAttribute("tiempoEspera", 2000);
+
+		System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
+
 		response.sendRedirect(request.getContextPath() + "/index");
+
+		System.out.println("Redirección realizada correctamente");
 	}
 }

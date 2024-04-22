@@ -19,8 +19,16 @@ public class AdminBorrarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String sId=request.getParameter("id");
 		Long id = Long.valueOf(sId);
-		Globales.DAO_PRODUCTO.borrar(id);
+		Globales.DAO_LIBRO.borrar(id);
 		
-		response.sendRedirect(request.getContextPath() + "/admin/productos");
+		
+		request.getSession().setAttribute("mensajeExito", "La operación de borrado se realizó correctamente.");
+		request.getSession().setAttribute("tiempoEspera", 2000);
+
+		System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
+
+		response.sendRedirect(request.getContextPath() + "/admin/libros");
+
+		System.out.println("Redirección realizada correctamente");
 	}
 }

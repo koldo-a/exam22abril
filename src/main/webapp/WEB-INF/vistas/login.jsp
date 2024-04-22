@@ -2,11 +2,28 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 <main class="container">
+
+
+<%-- Mensaje de éxito --%>
+    <c:if test="${sessionScope.mensaje != null}">
+        <div class="alert alert-success" role="alert">
+            ${sessionScope.mensaje.getTexto()}
+        </div>
+        <script>
+            setTimeout(function() {
+                document.querySelector('.alert').style.display = 'none';
+            }, ${sessionScope.mensaje.getTiempoVisible()});
+        </script>
+        <% session.removeAttribute("mensaje"); %>
+    </c:if>
+    
+    <!-- Formulario de login -->
+
 	<form action="login" method="post">
 		<div class="row mb-3">
-			<label for="email" class="col-sm-2 col-form-label">Email</label>
+			<label for="text" class="col-sm-2 col-form-label">Usuario</label>
 			<div class="col-sm">
-				<input type="email" class="form-control" id="email" name="email">
+				<input type="text" class="form-control" id="email" name="email">
 			</div>
 		</div>
 		<div class="row mb-3">

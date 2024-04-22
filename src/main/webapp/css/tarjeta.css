@@ -1,0 +1,42 @@
+.card {
+	background-color: white;
+}
+
+.card-title {
+	color: green;
+}
+
+h7 {
+	font-weight: bold;
+}
+
+.precio {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-items: center;
+	margin: 0px;
+}
+
+.precio1 {
+	font-size: large;
+	margin: 0px;
+}
+
+.precio2 {
+	color: grey;
+	text-decoration: line-through;
+	margin: 0px;
+}
+
+.descuento {
+	background-color: red;
+	padding: 5px;
+	border-radius: 3%;
+	margin: 0px;
+}
+
+.descuento2 {
+	color: white;
+	margin: 0px;
+}
