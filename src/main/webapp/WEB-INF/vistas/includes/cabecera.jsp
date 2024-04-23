@@ -57,8 +57,7 @@
 							<li class="nav-item"><a class="nav-link" href="logout">Logout
 									<i class="bi bi-box-arrow-right"></i>
 							</a></li>
-							<li class="nav-item"><a class="nav-link"
-								href="admin/libros">Administración</a></li>
+							<li class="nav-item"><a class="nav-link" href="admin/libros">Administración</a></li>
 							<li class="navbar-text text-success">${usuario}</li>
 						</c:otherwise>
 					</c:choose>
@@ -76,3 +75,27 @@
 			</div>
 		</div>
 	</c:if>
+	<%
+	if (session.getAttribute("mensajeExito") != null) {
+	%>
+	<div id="mensajeExito" class="alert alert-success" role="alert">
+		<%=session.getAttribute("mensajeExito")%>
+	</div>
+	<script type="text/javascript">
+		setTimeout(function() {
+			var mensajeExito = document.getElementById("mensajeExito");
+			mensajeExito.style.display = "none";
+		},
+	<%=session.getAttribute("tiempoEspera")%>
+		);
+	</script>
+
+	<%
+	session.removeAttribute("mensajeExito");
+	%>
+	<%
+	session.removeAttribute("tiempoEspera");
+	%>
+	<%
+	}
+	%>

@@ -2,15 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 <main class="container">
-	<%
-	if (session.getAttribute("mensajeExito") != null) {
-	%>
-	<div class="alert alert-success" role="alert">
-		<%=session.getAttribute("mensajeExito")%>
-	</div>
-	<%
-	}
-	%>
 	
 	<form novalidate action="admin/libro" method="post">
 		<div class="row mb-3">

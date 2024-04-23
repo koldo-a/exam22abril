@@ -2,30 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 
-<%
-if (session.getAttribute("mensajeExito") != null) {
-%>
-<div id="mensajeExito" class="alert alert-success" role="alert">
-	<%=session.getAttribute("mensajeExito")%>
-</div>
-<script type="text/javascript">
-	setTimeout(function() {
-		var mensajeExito = document.getElementById("mensajeExito");
-		mensajeExito.style.display = "none";
-	},
-<%=session.getAttribute("tiempoEspera")%>
-	);
-</script>
-
-<%
-session.removeAttribute("mensajeExito");
-%>
-<%
-session.removeAttribute("tiempoEspera");
-%>
-<%
-}
-%>
 <main class="container-fluid">
 	<div class="table-responsive">
 		<table class="table table-hover table-bordered table-striped">

@@ -28,24 +28,18 @@ public class LoginServlet extends HttpServlet {
 		
 		if("administrador".equals(email) && "123456".equals(password)) {
 			request.getSession().setAttribute("usuario", email);
-//			request.getSession().setAttribute("mensajeExito", "La operación de login se realizó correctamente.");
-//			request.getSession().setAttribute("tiempoEspera", 2000);
-//
-//			System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
-//
-//			response.sendRedirect(request.getContextPath() + "/admin/libros");
-//
-//			System.out.println("Redirección realizada correctamente");
-            // Crear mensaje de éxito y establecerlo en la sesión
-            MensajeUsuario mensaje = new MensajeUsuario("La operación de login se realizó correctamente.", 2000);
-            request.getSession().setAttribute("mensaje", mensaje);
-
-            response.sendRedirect(request.getContextPath() + "/admin/libros");
 			
+			MensajeUsuario mensajeExito = new MensajeUsuario("La operación de login se realizó correctamente.", MensajeUsuario.INFORMATIVO);
+			request.getSession().setAttribute("mensajeExito", mensajeExito.getMensaje());
+			request.getSession().setAttribute("tiempoEspera", 2000);
+
+			response.sendRedirect(request.getContextPath() + "/admin/libros");
+
 			return;
 		}
 		
-		request.setAttribute("error", "El usuario o contraseña son incorrectos");
+		MensajeUsuario mensajeError = new MensajeUsuario("El usuario o la contraseña son incorrectos.", MensajeUsuario.ERROR);
+		request.setAttribute("error", mensajeError.getMensaje());
 		request.getRequestDispatcher("/WEB-INF/vistas/login.jsp").forward(request, response);
 	}
 }

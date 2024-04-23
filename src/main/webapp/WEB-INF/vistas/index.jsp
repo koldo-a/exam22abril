@@ -2,26 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 <main class="container">
-	<%
-	if (session.getAttribute("mensajeExito") != null) {
-	%>
-	<div id="mensajeExito" class="alert alert-success" role="alert">
-		<%=session.getAttribute("mensajeExito")%>
-	</div>
-	<script type="text/javascript">
-        setTimeout(function() {
-            var mensajeExito = document.getElementById("mensajeExito");
-            mensajeExito.style.display = "none";
-        }, <%= session.getAttribute("tiempoEspera") %>);
-    </script>
-
-    <% session.removeAttribute("mensajeExito"); %>
-    <% session.removeAttribute("tiempoEspera"); %>
-	<%
-	}
-	%>
-	<div
-		class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
 		<c:forEach items="${libros}" var="p">
 			<div class="col">
 				<div class="card h-100">
@@ -34,10 +15,9 @@
 								<fmt:formatNumber type="currency" value="${p.precio -(p.descuento /100* p.precio)}" />
 							</p>
 							<p class="precio2">
-								<fmt:formatNumber type="currency"
-									value="${p.precio}" />
+								<fmt:formatNumber type="currency" value="${p.precio}" />
 							<div class="descuento">
-								<p class="descuento2">-<fmt:formatNumber type="number" value="${p.descuento}" />%</p>
+								<p class="descuento2">-<fmt:formatNumber type="number" value="${p.descuento}"/>%</p>
 							</div>
 						</div>
 					</div>

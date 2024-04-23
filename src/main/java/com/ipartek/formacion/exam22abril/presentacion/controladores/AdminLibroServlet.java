@@ -8,6 +8,7 @@ import java.util.Set;
 
 import com.ipartek.formacion.exam22abril.configuraciones.Globales;
 import com.ipartek.formacion.exam22abril.entidades.Libro;
+import com.ipartek.formacion.exam22abril.entidades.MensajeUsuario;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -63,18 +64,16 @@ public class AdminLibroServlet extends HttpServlet {
 
 		if (id != null) {
 			Globales.DAO_LIBRO.modificar(libro);
+			
 		} else {
 			Globales.DAO_LIBRO.insertar(libro);
 		}
 
-		request.getSession().setAttribute("mensajeExito", "La operación se realizó correctamente.");
+		MensajeUsuario mensajeExito = new MensajeUsuario("La operación se realizó correctamente.", MensajeUsuario.INFORMATIVO);
+		request.getSession().setAttribute("mensajeExito", mensajeExito.getMensaje());
 		request.getSession().setAttribute("tiempoEspera", 2000);
 
-		System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
-
 		response.sendRedirect(request.getContextPath() + "/admin/libros");
-
-		System.out.println("Redirección realizada correctamente");
 	}
 
 	private Map<String, String> validarLibro(Libro libro) {

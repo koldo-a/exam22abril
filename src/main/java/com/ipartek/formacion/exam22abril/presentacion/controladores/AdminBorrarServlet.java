@@ -3,6 +3,7 @@ package com.ipartek.formacion.exam22abril.presentacion.controladores;
 import java.io.IOException;
 
 import com.ipartek.formacion.exam22abril.configuraciones.Globales;
+import com.ipartek.formacion.exam22abril.entidades.MensajeUsuario;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,13 +23,10 @@ public class AdminBorrarServlet extends HttpServlet {
 		Globales.DAO_LIBRO.borrar(id);
 		
 		
-		request.getSession().setAttribute("mensajeExito", "La operación de borrado se realizó correctamente.");
+		MensajeUsuario mensajeExito = new MensajeUsuario("La operación de borrado se realizó correctamente.", MensajeUsuario.INFORMATIVO);
+		request.getSession().setAttribute("mensajeExito", mensajeExito.getMensaje());
 		request.getSession().setAttribute("tiempoEspera", 2000);
 
-		System.out.println("Mensaje de éxito establecido correctamente: " + request.getSession().getAttribute("mensajeExito"));
-
 		response.sendRedirect(request.getContextPath() + "/admin/libros");
-
-		System.out.println("Redirección realizada correctamente");
 	}
 }

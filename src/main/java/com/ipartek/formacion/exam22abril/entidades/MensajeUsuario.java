@@ -1,29 +1,32 @@
 package com.ipartek.formacion.exam22abril.entidades;
 
 public class MensajeUsuario {
+    public static final String ERROR = "error";
+    public static final String INFORMATIVO = "informativo";
+    public static final String ALERTA = "alerta";
 
-	private String texto;
-	private int duracion;
+    private String mensaje;
+    private String tipo;
 
-	public MensajeUsuario(String texto, int duracion) {
-		super();
-		this.texto = texto;
-		this.setDuracion(duracion);
-	}
+    public MensajeUsuario(String mensaje, String tipo) {
+        this.mensaje = mensaje;
+        this.tipo = tipo;
+    }
 
-	public String getTexto() {
-		return texto;
-	}
+    // Getters y setters
+    public String getMensaje() {
+        return mensaje;
+    }
 
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 
-	public int getDuracion() {
-		return duracion;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
-	}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
