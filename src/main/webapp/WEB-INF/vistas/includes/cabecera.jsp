@@ -15,11 +15,6 @@
 
 <link rel="icon" type="image/svg+xml" href="imgs/favicon.svg">
 
-<link rel="stylesheet" href="css/bootstrap-icons.min.css">
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script defer src="js/bootstrap.bundle.min.js"></script>
-
 <link rel="stylesheet" href="css/tarjeta.css">
 <link rel="stylesheet" href="css/mensajes.css">
 
@@ -28,6 +23,11 @@
 <link rel="stylesheet" href="css/dataTables.bootstrap5.css">
 <script defer src="js/dataTables.js"></script>
 <script defer src="js/dataTables.bootstrap5.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script defer src="js/bootstrap.bundle.min.js"></script>
 
 <script defer src="js/mf0967.js"></script>
 

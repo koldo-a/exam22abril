@@ -4,9 +4,9 @@
     left: 50%; /* Ubicar el mensaje en el centro horizontal */
     transform: translate(-50%, -50%); /* Centrar el mensaje correctamente */
     z-index: 9999; /* Asegurar que esté por encima de todos los demás elementos */
-    background-color: rgba(76, 175, 80, 0.8); /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 100px; /* Espacio interior */
+/*     background-color: rgba(76, 175, 80, 0.8); Color de fondo */
+    color: black; /* Color del texto */
+    padding: 50px; /* Espacio interior */
     border-radius: 5px; /* Bordes redondeados */
     text-align: center; /* Centrar el texto */
     font-size: 20px; /* Tamaño de fuente */
